@@ -1,0 +1,30 @@
+<div class="main-container" >
+  <div class="search-bar">
+    <form #form="ngForm" (submit)="onSubmit()" >
+      <input type="text" placeholder="Enter city name..."name="city" [(ngModel)]="cityName"></form>
+  </div>
+  <div class="container">
+    <div class="main-info">
+      <div class="pic">
+        <img id="weatherImg" src="../assets/icons8-sun-144.png">
+      </div>
+      <div class="city-info">
+        <h3> {{weatherData.name}} </h3>
+        <h2>{{weatherData.weather[0].main}} </h2>
+        <h1> {{weatherData.main.temp | number: '1.0-0'}} F˚ </h1>
+      </div>
+    </div>
+    <div class="secondary-info">
+      <div class="temp-minmax">
+        <h2> <img src='../assets/icons8-temperature-low-100.png' width="15%"> Min-Temp: {{weatherData.main.temp_min | number: '1.0-0'}} F˚</h2>
+        <h2> <img src='../assets/icons8-temperature-high-100.png' width="15%">Max-Temp: {{weatherData.main.temp_max | number: '1.0-0'}} F˚</h2>
+      </div>
+      <div class="humidity-wind">
+        <h2><img src='../assets/icons8-wind-96.png' width="15%"> Wind: {{weatherData.wind.speed}} mph</h2>
+        <h2><img src='../assets/icons8-humidity-80.png' width="15%"> Humidity: {{weatherData.main.humidity}}% </h2>
+      </div>
+    </div>
+  </div>
+  <div class="final-container"></div>
+</div>
+<router-outlet></router-outlet>
